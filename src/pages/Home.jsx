@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 import hologram from '../assets/hologram.png';
 
 
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const links = ["Home", "About", "Members", "Projects", "Contact"];
@@ -96,8 +97,19 @@ export default function Home() {
               {links.map((link) => (
                 <motion.div key={link} className="relative" whileHover="hover" initial="rest">
                   <Link 
-                    to={link.toLowerCase()} 
+                    to={link.toLowerCase() === "home" ? "/" : `/${link.toLowerCase()}`}
                     className="text-blue-300 text-lg font-medium relative"
+                    onClick={(e) => {
+                      // Special handling for home link
+                      if (link.toLowerCase() === "home") {
+                        const currentPath = window.location.pathname;
+                        const isHome = currentPath === "/" || currentPath.includes("/index.html");
+                        if (isHome) {
+                          e.preventDefault();
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                      }
+                    }}
                   >
                     <motion.span
                       className="block"
@@ -123,131 +135,144 @@ export default function Home() {
           </div>
 
           {/* Mobile Navigation Overlay */}
-          <AnimatePresence>
-        {menuOpen && (
-          <>
-            <motion.div
-              key="overlay-bg"
-              className="lg:hidden fixed inset-0 z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0c1f33]/95 via-[#0a2742]/95 to-[#12345a]/95 backdrop-blur-md" />
-              
-              {[...Array(15)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute rounded-full bg-blue-400/20"
-                  style={{
-                    width: Math.random() * 8 + 2 + 'px',
-                    height: Math.random() * 8 + 2 + 'px',
-                    left: Math.random() * 100 + '%',
-                    top: Math.random() * 100 + '%',
-                  }}
-                  animate={{
-                    y: [0, (Math.random() - 0.5) * 60],
-                    x: [0, (Math.random() - 0.5) * 40],
-                    opacity: [0.3, 0.8, 0.3],
-                  }}
-                  transition={{
-                    duration: Math.random() * 10 + 10,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut",
-                  }}
-                />
-              ))}
-            </motion.div>
+<AnimatePresence>
+  {menuOpen && (
+    <>
+      <motion.div
+        key="overlay-bg"
+        className="lg:hidden fixed inset-0 z-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0c1f33]/95 via-[#0a2742]/95 to-[#12345a]/95 backdrop-blur-md" />
+        
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-blue-400/20"
+            style={{
+              width: Math.random() * 8 + 2 + 'px',
+              height: Math.random() * 8 + 2 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+            }}
+            animate={{
+              y: [0, (Math.random() - 0.5) * 60],
+              x: [0, (Math.random() - 0.5) * 40],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </motion.div>
 
+      <motion.div
+        key="nav-content"
+        className="lg:hidden fixed inset-0 z-50 flex flex-col items-center justify-center p-6"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+      >
+        <div className="space-y-6 w-full max-w-xs">
+          {links.map((link, index) => (
             <motion.div
-              key="nav-content"
-              className="lg:hidden fixed inset-0 z-50 flex flex-col items-center justify-center p-6"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 20, opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              key={link}
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                delay: 0.1 + index * 0.1,
+                duration: 0.5,
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <div className="space-y-6 w-full max-w-xs">
-                {links.map((link, index) => (
-                  <motion.div
-                    key={link}
-                    initial={{ x: -30, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{
-                      delay: 0.1 + index * 0.1,
-                      duration: 0.5,
-                      type: "spring",
-                      stiffness: 100
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      to={`/${link.toLowerCase()}`}
-                      onClick={() => setMenuOpen(false)}
-                      className="block w-full"
-                    >
-                      <motion.div
-                        className="px-5 py-3 rounded-xl bg-gradient-to-r from-blue-900/30 to-blue-800/20 border border-blue-700/30 backdrop-blur-sm shadow-lg"
-                        whileHover={{
-                          background: [
-                            'linear-gradient(to right, rgba(12, 74, 110, 0.3), rgba(8, 47, 73, 0.2))',
-                            'linear-gradient(to right, rgba(16, 94, 140, 0.4), rgba(10, 60, 90, 0.3))'
-                          ],
-                          borderColor: 'rgba(96, 165, 250, 0.5)'
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <motion.div
-                            className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center"
-                            animate={{
-                              rotate: [0, 10, -10, 0],
-                            }}
-                            transition={{
-                              duration: 3,
-                              repeat: Infinity,
-                              repeatType: "mirror"
-                            }}
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full bg-blue-300" />
-                          </motion.div>
-                          <motion.span
-                            className="text-xl font-medium text-blue-100"
-                            whileHover={{ color: '#bfdbfe' }}
-                          >
-                            {link}
-                          </motion.span>
-                        </div>
-                      </motion.div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Close Button */}
-              <motion.button
-                onClick={() => setMenuOpen(false)}
-                className="mt-10 px-6 py-2.5 rounded-full bg-blue-900/40 border border-blue-700/40 text-blue-200 font-medium flex items-center space-x-2 hover:bg-blue-900/60 transition-colors"
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: 'rgba(29, 78, 216, 0.5)'
+              <Link
+                to={link.toLowerCase() === "home" ? "/" : `/${link.toLowerCase()}`}
+                onClick={(e) => {
+                  if (link.toLowerCase() === "home") {
+                    // Check if we're already on home page
+                    const isHome = window.location.pathname === "/" || 
+                                 window.location.pathname === "/index.html" ||
+                                 window.location.pathname.includes("/your-repo-name");
+                    
+                    if (isHome) {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }
+                  setMenuOpen(false);
                 }}
-                whileTap={{ 
-                  scale: 0.95,
-                  backgroundColor: 'rgba(29, 78, 216, 0.3)'
-                }}
-                transition={{ duration: 0.2 }}
+                className="block w-full"
               >
-                <span>Close</span>
-                <FaTimes className="text-base" />
-              </motion.button>
+                <motion.div
+                  className="px-5 py-3 rounded-xl bg-gradient-to-r from-blue-900/30 to-blue-800/20 border border-blue-700/30 backdrop-blur-sm shadow-lg"
+                  whileHover={{
+                    background: [
+                      'linear-gradient(to right, rgba(12, 74, 110, 0.3), rgba(8, 47, 73, 0.2))',
+                      'linear-gradient(to right, rgba(16, 94, 140, 0.4), rgba(10, 60, 90, 0.3))'
+                    ],
+                    borderColor: 'rgba(96, 165, 250, 0.5)'
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex items-center space-x-3">
+                    <motion.div
+                      className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center"
+                      animate={{
+                        rotate: [0, 10, -10, 0],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatType: "mirror"
+                      }}
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-300" />
+                    </motion.div>
+                    <motion.span
+                      className="text-xl font-medium text-blue-100"
+                      whileHover={{ color: '#bfdbfe' }}
+                    >
+                      {link}
+                    </motion.span>
+                  </div>
+                </motion.div>
+              </Link>
             </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+          ))}
+        </div>
+
+        {/* Close Button */}
+        <motion.button
+          onClick={() => setMenuOpen(false)}
+          className="mt-10 px-6 py-2.5 rounded-full bg-blue-900/40 border border-blue-700/40 text-blue-200 font-medium flex items-center space-x-2 hover:bg-blue-900/60 transition-colors"
+          whileHover={{
+            scale: 1.05,
+            backgroundColor: 'rgba(29, 78, 216, 0.5)'
+          }}
+          whileTap={{ 
+            scale: 0.95,
+            backgroundColor: 'rgba(29, 78, 216, 0.3)'
+          }}
+          transition={{ duration: 0.2 }}
+        >
+          <span>Close</span>
+          <FaTimes className="text-base" />
+        </motion.button>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
 
           {/* Right Side - Lanyard with adjusted positioning */}
           <div className="w-90% md:w-1/2 h-auto flex justify-center md:justify-end items-start z-10">

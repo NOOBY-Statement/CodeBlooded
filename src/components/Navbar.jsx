@@ -34,19 +34,17 @@ export default function Navbar() {
 
   return (
     <header className="flex justify-between items-center px-4 sm:px-6 md:px-10 py-3 text-white z-50 sticky top-0 bg-black">
-  <div className="flex items-baseline">
-    <img 
-      src={logo1}
-      alt="CodeBlooded Logo"
-      className="h-[2em] w-auto mr-2 align-middle" // Exact text height matching
-    />
-    <Link to="/Home">
-  <h1 className="text-2xl sm:text-[30px] font-bold bg-gradient-to-r from-blue-400 to-blue-50 bg-clip-text text-transparent inline-block hover:bg-gradient-to-r hover:from-blue-300 hover:to-blue-100 transition-all duration-300">
-    CodeBlooded
-  </h1>
-</Link>
-  </div>
-
+      {/* Logo and Text - Both clickable to home */}
+      <Link to="/" className="flex items-center group">
+        <img 
+          src={logo1}
+          alt="CodeBlooded Logo"
+          className="h-[2em] w-auto mr-2 align-middle transition-transform duration-300 group-hover:scale-105"
+        />
+        <h1 className="text-2xl sm:text-[30px] font-bold bg-gradient-to-r from-blue-400 to-blue-50 bg-clip-text text-transparent inline-block hover:bg-gradient-to-r hover:from-blue-300 hover:to-blue-100 transition-all duration-300">
+          CodeBlooded
+        </h1>
+      </Link>
       
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex text-lg space-x-6">

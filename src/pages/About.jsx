@@ -7,11 +7,17 @@ import  Img5 from "../assets/sablanding.png";
 import  Img1 from "../assets/twitter.png";
 import  Img3 from "../assets/inayawan3.png";
 import { div } from 'framer-motion/client';
+import DatuImg from "../assets/datu.png";
+import DefensorImg from "../assets/defensor.png";
+import LacambraImg from "../assets/lacambra.png";
+import LegaspiImg from "../assets/legaspi.png";
+import SonalizaImg from "../assets/sonaliza.png";
+
 
 const teamMembers = [
   { 
     name: 'Datu', 
-    img: "/images/datu.png",
+    src: DatuImg,
     role: "Backend Developer",
     bio: "Responsible for building and maintaining the server-side of our portfolio website.",
     social: {
@@ -21,7 +27,7 @@ const teamMembers = [
   },
   { 
     name: 'Defensor', 
-    img: "/images/defensor.png",
+    src: DefensorImg,
     role: "UI/UX Designer",
     bio: "Focused on creating intuitive and visually appealing interfaces for our portfolio website.",
     social: {
@@ -31,7 +37,7 @@ const teamMembers = [
   },
   { 
     name: 'Lacambra', 
-    img: "/images/lacambra.png",
+    src: LacambraImg,
     role: "Backend Developer, Project Manager",
     bio: "Leads the development and structure of our portfolio website from the backend, while also managing the overall direction of our projects.",
     social: {
@@ -41,7 +47,7 @@ const teamMembers = [
   },
   { 
     name: 'Legaspi', 
-    img: "/images/legaspi.png",
+    src: LegaspiImg,
     role: "UI/UX Designer, Frontend Developer",
     bio: "Combines creative design with technical execution to bring our portfolio website to life. ",
     social: {
@@ -51,7 +57,7 @@ const teamMembers = [
   },
   { 
     name: 'Sonaliza', 
-    img: "/images/sonaliza.png",
+    src: SonalizaImg,
     role: "Full Stack Developer",
     bio: "Handles cleaning up both the frontend and backend of our portfolio website, bridging the gap between design, functionality, and data.",
     social: {
