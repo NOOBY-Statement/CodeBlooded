@@ -9,6 +9,7 @@ import TeamName from "../components/TeamName";
 import { Link } from 'react-router-dom';
 import { div } from 'framer-motion/client';
 import Footer from '../components/Footer';
+import hologram from '../assets/hologram.png';
 
 
 export default function Home() {
@@ -317,7 +318,7 @@ export default function Home() {
 
   {/* Responsive Hologram */}
   <motion.img
-  src="../assets/hologram.png"
+  src= {hologram}
   alt="Hologram Projector"
   className="absolute -bottom-20 sm:-bottom-28 left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] h-auto z-30"
   initial={{ 

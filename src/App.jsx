@@ -1,12 +1,7 @@
 // App.jsx — no <BrowserRouter> here!
 import { Routes, Route, NavLink } from 'react-router-dom';
-import Home from './pages/Home';
-import Team from './pages/Team';
 import Members from './pages/Members';
-import Projectspage from './pages/Projects';
 import { HashRouter } from 'react-router-dom';
-import App from './App.jsx';
-import Members from './pages/Members';
 import Contact from './pages/Contact.jsx';
 import About from './pages/About.jsx';
 import Home from './pages/Home.jsx';
@@ -24,7 +19,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/members" element={<Members />}/>
+        <Route path="/member" element={<Members />}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact />}/>
       </Routes>
