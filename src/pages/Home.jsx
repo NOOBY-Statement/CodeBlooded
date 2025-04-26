@@ -317,7 +317,7 @@ export default function Home() {
 
   {/* Responsive Hologram */}
   <motion.img
-  src="/src/assets/hologram.png"
+  src="../assets/hologram.png"
   alt="Hologram Projector"
   className="absolute -bottom-20 sm:-bottom-28 left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] h-auto z-30"
   initial={{ 

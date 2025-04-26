@@ -22,6 +22,16 @@ const router = createHashRouter([
     element: <App />,
     children: [
       { index: true, element: <Home /> },
+      { index: true, element: <Contact/> },
+      { index: true, element: <About /> },
+      { index: true, element: <Team /> },
+      { index: true, element: <LacambraPage /> },
+      { index: true, element: <LegaspiPage /> },
+      { index: true, element: <SonalizaPage /> },
+      { index: true, element: <DatuPage /> },
+      { index: true, element: <Projectspage /> },
+      { index: true, element: <Member /> },
+
     
     ]
   }
