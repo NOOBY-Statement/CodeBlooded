@@ -1,0 +1,315 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  
+  
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Glow Ring (Hologram Effect) */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255,255,255,0.4), 0 0 80px rgba(255,255,255,0.1) inset;
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255,255,255,0.8), 0 0 100px rgba(255,255,255,0.3) inset;
+  }
+}
+
+@keyframes float-updown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+@keyframes beam-flicker {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(1.1);
+  }
+}
+
+
+.glowring1, .glowring2, .glowring3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 30px rgba(255,255,255,0.6), 0 0 80px rgba(255,255,255,0.3) inset;
+  animation: pulse-glow 3s ease-in-out infinite, ipoipo-spin 6s linear infinite, float-updown 5s ease-in-out infinite;
+  z-index: 0;
+}
+
+
+.glowring1 {
+  bottom: -100px;
+  width: 600px;
+  height: 100px;
+}
+
+.glowring2 {
+  bottom: -80px;
+  width: 300px;
+  height: 70px;
+}
+
+.glowring3 {
+  bottom: -140px;
+  width: 500px;
+  height: 100px;
+}
+
+/* Light Beam Container */
+.beam-wrapper {
+  position: absolute;
+  bottom: -100px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Individual Beams */
+.beam {
+  height: 400px;
+  background: linear-gradient(to top, rgba(173, 216, 230, 0.2), rgba(255, 255, 255, 0.4), transparent); /* light blue to white to transparent */
+  animation: beam-flicker 2.5s ease-in-out infinite;
+  filter: blur(4px);
+  transform-origin: bottom;
+  border-radius: 20px;
+}
+
+.beam-left {
+  width: 100px;
+  transform: rotate(-18deg);
+  margin-right: 60px;
+}
+
+.beam-center {
+  width: 20px;
+  transform: scaleX(1.1);
+}
+
+.beam-right {
+  width: 100px;
+  transform: rotate(18deg);
+  margin-left: 60px;
+}
+
+/* Carousel Animation */
+@keyframes carousel-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+.carousel-animate {
+  animation: carousel-float 7s ease-in-out infinite;
+}
+
+
+
+/* Lanyard */
+.lanyard-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transform-origin: center;
+}
+
+
+
+/* Light Beam/Rays */
+/* Hologram floating + glow pulse */
+@keyframes hologram-float {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(1);
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.4));
+  }
+  50% {
+    transform: translate(-50%, -20px) scale(1.05);
+    filter: drop-shadow(0 0 25px rgba(147, 197, 253, 0.9));
+  }
+}
+
+/* Beam fade animation: subtle flicker and movement */
+@keyframes beam-fade {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scaleY(1.05);
+  }
+}
+
+/* Glow pulse for base glow ring */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2) inset;
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(147, 197, 253, 0.8), 0 0 100px rgba(147, 197, 253, 0.3) inset;
+  }
+}
+
+.custom-hologram {
+  animation: hologram-float 6s ease-in-out infinite;
+}
+
+/* Animate beam fade manually if not using Tailwind's animate-* classes */
+.animate-beam-fade {
+  animation: beam-fade 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+
+/* Navigation Links */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.6));
+  
+}
+
+/* Aurora Background*/
+.aurora-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Text Focus*/
+.focus-container {
+  position: relative;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Words */
+.focus-word {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    filter 0.3s ease,
+    color 0.3s ease;
+}
+
+.focus-word.active {
+  filter: blur(0);
+}
+
+.focus-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  box-sizing: content-box;
+  border: none;
+}
+
+.corner {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border: 3px solid var(--border-color, #fff);
+  filter: drop-shadow(0px 0px 4px var(--border-color, #fff));
+  border-radius: 3px;
+  transition: none;
+}
+
+.top-left {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right {
+  top: -10px;
+  right: -10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left {
+  bottom: -10px;
+  left: -10px;
+  border-right: none;
+  border-top: none;
+}
+
+.bottom-right {
+  bottom: -10px;
+  right: -10px;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+/* For smoother gradient rendering */
+@layer utilities {
+  .bg-gradient-to-r {
+    background-size: 200% 200%;
+    transition: background-position 0.3s ease;
+  }
+  .bg-gradient-to-r:hover {
+    background-position: 100% 100%;
+  }
+}
+
