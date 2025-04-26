@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { HashRouter } from 'react-router-dom';
+import { createHashRouter, HashRouter } from 'react-router-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Members from './pages/Members';
@@ -16,7 +16,7 @@ import DatuPage from "./members/DatuPage";
 import DefensorPage from "./members/DefensorPage";
 import Projectspage from "./pages/Projects.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,
