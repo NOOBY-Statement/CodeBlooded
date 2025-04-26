@@ -1,8 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { createHashRouter, HashRouter } from 'react-router-dom';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import App from './App.jsx';
 import Members from './pages/Members';
 import Contact from './pages/Contact.jsx';
@@ -16,32 +15,26 @@ import DatuPage from "./members/DatuPage";
 import DefensorPage from "./members/DefensorPage";
 import Projectspage from "./pages/Projects.jsx";
 
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      { index: true, element: <Home /> },
-      { index: true, element: <Contact/> },
-      { index: true, element: <About /> },
-      { index: true, element: <Team /> },
-      { index: true, element: <LacambraPage /> },
-      { index: true, element: <LegaspiPage /> },
-      { index: true, element: <SonalizaPage /> },
-      { index: true, element: <DatuPage /> },
-      { index: true, element: <Projectspage /> },
-      { index: true, element: <DefensorPage /> },
-      { index: true, element: <Members /> },
+const root = createRoot(document.getElementById('root'));
 
-    
-    ]
-  }
-]);
-
-ReactDOM.createRoot(document.getElementById('root')).render (
-  <HashRouter>
-    <AppContextProvider>
-      <App />
-    </AppContextProvider>
-  </HashRouter>
-)
+root.render(   
+  <StrictMode>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="team" element={<Team />} />
+          <Route path="projects" element={<Projectspage />} />
+          <Route path="members" element={<Members />} />
+          <Route path="members/lacambra" element={<LacambraPage />} />
+          <Route path="members/legaspi" element={<LegaspiPage />} />
+          <Route path="members/sonaliza" element={<SonalizaPage />} />
+          <Route path="members/datu" element={<DatuPage />} />
+          <Route path="members/defensor" element={<DefensorPage />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+  </StrictMode>
+);
