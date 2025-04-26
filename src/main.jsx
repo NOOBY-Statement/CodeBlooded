@@ -18,28 +18,17 @@ import Projectspage from "./pages/Projects.jsx";
 
 const router = createHashRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'members', element: <Members /> },
-      { path: 'contact', element: <Contact /> },
-      { path: 'about', element: <About /> },
-      { path: 'team', element: <Team /> },
-      { path: 'projects', element: <Projectspage /> },
-      { path: 'member1', element: <LacambraPage /> },
-      { path: 'member2', element: <LegaspiPage /> },
-      { path: 'member3', element: <SonalizaPage /> },
-      { path: 'member4', element: <DatuPage /> },
-      { path: 'member5', element: <DefensorPage /> },
+    
     ]
   }
 ]);
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <HashRouter>
-    <App />
-  </HashRouter>
-
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
 );
