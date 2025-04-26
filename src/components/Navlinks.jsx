@@ -1,83 +1,49 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const NavLinks = () => {
+  const location = useLocation();
+  const links = [
+    { path: "/", label: "Home" },
+    { path: "/members", label: "Members" },
+    { path: "/projects", label: "Projects" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" }
+  ];
+
   return (
     <div className="flex space-x-8 my-6">
-      {/* Home Link */}
-      <motion.div className="relative" whileHover="hover" initial="rest">
-        <Link to="/" className="text-blue-300 text-lg font-medium relative">
-          Home
-          <motion.div 
-            className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
-            variants={{
-              rest: { width: 0 },
-              hover: { width: "100%" }
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          />
-        </Link>
-      </motion.div>
-
-      {/* Members Link */}
-      <motion.div className="relative" whileHover="hover" initial="rest">
-        <Link to="/members" className="text-blue-300 text-lg font-medium relative">
-          Members
-          <motion.div 
-            className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
-            variants={{
-              rest: { width: 0 },
-              hover: { width: "100%" }
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          />
-        </Link>
-      </motion.div>
-
-      {/* Projects Link */}
-      <motion.div className="relative" whileHover="hover" initial="rest">
-        <Link to="/projects" className="text-blue-300 text-lg font-medium relative">
-          Projects
-          <motion.div 
-            className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
-            variants={{
-              rest: { width: 0 },
-              hover: { width: "100%" }
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          />
-        </Link>
-      </motion.div>
-
-      {/* About Link */}
-      <motion.div className="relative" whileHover="hover" initial="rest">
-        <Link to="/about" className="text-blue-300 text-lg font-medium relative">
-          About
-          <motion.div 
-            className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
-            variants={{
-              rest: { width: 0 },
-              hover: { width: "100%" }
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          />
-        </Link>
-      </motion.div>
-
-      {/* Contact Link */}
-      <motion.div className="relative" whileHover="hover" initial="rest">
-        <Link to="/contact" className="text-blue-300 text-lg font-medium relative">
-          Contact
-          <motion.div 
-            className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
-            variants={{
-              rest: { width: 0 },
-              hover: { width: "100%" }
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          />
-        </Link>
-      </motion.div>
+      {links.map((link) => (
+        <motion.div 
+          key={link.path}
+          className="relative"
+          whileHover="hover"
+          initial="rest"
+        >
+          <Link 
+            to={link.path} 
+            className={`text-lg font-medium relative ${
+              location.pathname === link.path 
+                ? 'text-blue-400' 
+                : 'text-blue-300 hover:text-blue-200'
+            }`}
+          >
+            <motion.span className="block">
+              {link.label}
+              <motion.div
+                className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
+                variants={{
+                  rest: { 
+                    width: location.pathname === link.path ? '100%' : 0 
+                  },
+                  hover: { width: "100%" }
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
+            </motion.span>
+          </Link>
+        </motion.div>
+      ))}
     </div>
   );
 };

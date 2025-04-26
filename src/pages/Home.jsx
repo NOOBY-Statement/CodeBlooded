@@ -95,24 +95,28 @@ export default function Home() {
               <div className="hidden md:flex flex-row space-x-8 mt-2">
               {links.map((link) => (
                 <motion.div key={link} className="relative" whileHover="hover" initial="rest">
-                  <motion.a
-                    href={`/${link.toLowerCase()}`}
+                  <Link 
+                    to={link.toLowerCase()} 
                     className="text-blue-300 text-lg font-medium relative"
-                    variants={{
-                      rest: { color: "#93c5fd" },
-                      hover: { color: "#bfdbfe" }
-                    }}
                   >
-                    {link}
-                    <motion.div
-                      className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
+                    <motion.span
+                      className="block"
                       variants={{
-                        rest: { width: 0 },
-                        hover: { width: "100%" }
+                        rest: { color: "#93c5fd" },
+                        hover: { color: "#bfdbfe" }
                       }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    />
-                  </motion.a>
+                    >
+                      {link}
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
+                        variants={{
+                          rest: { width: 0 },
+                          hover: { width: "100%" }
+                        }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      />
+                    </motion.span>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -244,7 +248,7 @@ export default function Home() {
           </>
         )}
       </AnimatePresence>
-      
+
           {/* Right Side - Lanyard with adjusted positioning */}
           <div className="w-90% md:w-1/2 h-auto flex justify-center md:justify-end items-start z-10">
           {/* Mobile/Tablet: Centered with moderate spacing */}
