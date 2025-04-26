@@ -7,6 +7,6 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
-  base: "/CodeBlooded",
+  base: "/CodeBlooded/",
   assetsInclude: ['**/*.glb'], // move this outside of plugins
 })
