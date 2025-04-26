@@ -4,12 +4,11 @@ import Home from './pages/Home';
 import Team from './pages/Team';
 import Members from './pages/Members';
 import Projectspage from './pages/Projects';
+import { HashRouter } from 'react-router-dom';
 
 export default function App() {
   return (
     <div className="text-white bg-black">
-     
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<Team />} />

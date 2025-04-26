@@ -12,4 +12,12 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
+  <script>
+    // Check for stored redirect URL
+    const redirectUrl = sessionStorage.getItem('redirect');
+    if (redirectUrl && redirectUrl !== window.location.href) {
+      sessionStorage.removeItem('redirect');
+      window.location.href = redirectUrl;
+    }
+  </script>
 </html>
