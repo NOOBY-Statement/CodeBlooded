@@ -7,10 +7,18 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeBlooded</title>
-    <script type="module" crossorigin src="/CodeBlooded/assets/index-BIsrq07g.js"></script>
+    <script type="module" crossorigin src="/CodeBlooded/assets/index-_nqI_Nkl.js"></script>
     <link rel="stylesheet" crossorigin href="/CodeBlooded/assets/index-C0YWnr_t.css">
   </head>
   <body>
     <div id="root"></div>
   </body>
+  <script>
+    // Check for stored redirect URL
+    const redirectUrl = sessionStorage.getItem('redirect');
+    if (redirectUrl && redirectUrl !== window.location.href) {
+      sessionStorage.removeItem('redirect');
+      window.location.href = redirectUrl;
+    }
+  </script>
 </html>
