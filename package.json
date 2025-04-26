@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy":  "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@react-three/rapier": "^2.1.0",
     "@tailwindcss/vite": "^4.1.4",
     "framer-motion": "^12.8.0",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.503.0",
     "meshline": "^3.3.1",
     "ogl": "^1.0.11",
