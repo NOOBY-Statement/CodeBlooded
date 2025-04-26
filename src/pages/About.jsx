@@ -17,7 +17,7 @@ import SonalizaImg from "../assets/sonaliza.png";
 const teamMembers = [
   { 
     name: 'Datu', 
-    src: DatuImg,
+    img: DatuImg,
     role: "Backend Developer",
     bio: "Responsible for building and maintaining the server-side of our portfolio website.",
     social: {
@@ -27,7 +27,7 @@ const teamMembers = [
   },
   { 
     name: 'Defensor', 
-    src: DefensorImg,
+    img: DefensorImg,
     role: "UI/UX Designer",
     bio: "Focused on creating intuitive and visually appealing interfaces for our portfolio website.",
     social: {
@@ -37,7 +37,7 @@ const teamMembers = [
   },
   { 
     name: 'Lacambra', 
-    src: LacambraImg,
+    img: LacambraImg,
     role: "Backend Developer, Project Manager",
     bio: "Leads the development and structure of our portfolio website from the backend, while also managing the overall direction of our projects.",
     social: {
@@ -47,7 +47,7 @@ const teamMembers = [
   },
   { 
     name: 'Legaspi', 
-    src: LegaspiImg,
+    img: LegaspiImg,
     role: "UI/UX Designer, Frontend Developer",
     bio: "Combines creative design with technical execution to bring our portfolio website to life. ",
     social: {
@@ -57,7 +57,7 @@ const teamMembers = [
   },
   { 
     name: 'Sonaliza', 
-    src: SonalizaImg,
+    img: SonalizaImg,
     role: "Full Stack Developer",
     bio: "Handles cleaning up both the frontend and backend of our portfolio website, bridging the gap between design, functionality, and data.",
     social: {
