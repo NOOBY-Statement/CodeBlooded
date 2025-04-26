@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Redirecting...</title>
-  <script>
-    // Store the attempted URL for later
-    sessionStorage.setItem('redirect', window.location.href);
-  </script>
-  <meta http-equiv="refresh" content="0;URL='/'" />
-</head>
-<body>
-  <h1>Redirecting to homepage...</h1>
-  <p>If not redirected automatically, <a href="/">click here</a>.</p>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      sessionStorage.redirect = location.pathname;
+    </script>
+    <meta http-equiv="refresh" content="0;URL='/'" />
+  </head>
+  <body></body>
 </html>

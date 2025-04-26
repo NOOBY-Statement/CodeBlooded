@@ -1,24 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      (function(){
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <!-- add icon here -->
     <link rel="icon" type="image/svg+xml" href="/CodeBlooded/assets/cblogo-N7Ne4lLK.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeBlooded</title>
-    <script type="module" crossorigin src="/CodeBlooded/assets/index-CG9P_zpl.js"></script>
+    <script type="module" crossorigin src="/CodeBlooded/assets/index-CgCXwRib.js"></script>
     <link rel="stylesheet" crossorigin href="/CodeBlooded/assets/index-CbmEosUP.css">
   </head>
   <body>
     <div id="root"></div>
   </body>
-  <script>
-    // Check for stored redirect URL
-    const redirectUrl = sessionStorage.getItem('redirect');
-    if (redirectUrl && redirectUrl !== window.location.href) {
-      sessionStorage.removeItem('redirect');
-      window.location.href = redirectUrl;
-    }
-  </script>
 </html>
