@@ -5,6 +5,18 @@ import Team from './pages/Team';
 import Members from './pages/Members';
 import Projectspage from './pages/Projects';
 import { HashRouter } from 'react-router-dom';
+import App from './App.jsx';
+import Members from './pages/Members';
+import Contact from './pages/Contact.jsx';
+import About from './pages/About.jsx';
+import Home from './pages/Home.jsx';
+import Team from './pages/Team.jsx';
+import LacambraPage from "./members/LacambraPage";
+import LegaspiPage from "./members/LegaspiPage";
+import SonalizaPage from "./members/SonalizaPage";
+import DatuPage from "./members/DatuPage";
+import DefensorPage from "./members/DefensorPage";
+import Projectspage from "./pages/Projects.jsx";
 
 export default function App() {
   return (
@@ -13,7 +25,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<Team />} />
         <Route path="/members" element={<Members />}/>
-        <Route path="/projects" element={<Projectspage />}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact />}/>
       </Routes>
     </div>
   );

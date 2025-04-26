@@ -30,7 +30,8 @@ const router = createHashRouter([
       { index: true, element: <SonalizaPage /> },
       { index: true, element: <DatuPage /> },
       { index: true, element: <Projectspage /> },
-      { index: true, element: <Member /> },
+      { index: true, element: <DefensorPage /> },
+      { index: true, element: <Members /> },
 
     
     ]
