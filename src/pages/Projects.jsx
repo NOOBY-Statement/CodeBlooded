@@ -13,7 +13,7 @@ import  Img8 from "../assets/grades.png";
 import  Img9 from "../assets/parkez1.png";
 import  Img10 from "../assets/park2.png";
 import  Img11 from "../assets/park3.png";
-import  Img12 from "../assets/alcambra1.png";
+import  Img12 from "../assets/Alcambra1.png";
 import  Img13 from "../assets/alcambra2.png";
 import  Img14 from "../assets/alcambra3.png";
 import  Img15 from "../assets/image.png";
