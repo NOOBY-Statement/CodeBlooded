@@ -2,11 +2,31 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const members = [
-  { src: "images/lacambra.png", name: "Lacambra", link: "/member1" },
-  { src: "images/legaspi.png", name: "Legaspi", link: "/member2" },
-  { src: "images/sonaliza.png", name: "Sonaliza", link: "/member3" },
-  { src: "images/datu.png", name: "Datu", link: "/member4" },
-  { src: "images/defensor.png", name: "Defensor", link: "/member5" },
+  { 
+    src: "images/lacambra.png", 
+    name: "Lacambra", 
+    link: "/members/lacambra"  // Updated to match your route
+  },
+  { 
+    src: "images/legaspi.png", 
+    name: "Legaspi", 
+    link: "/members/legaspi"   // Updated to match your route
+  },
+  { 
+    src: "images/sonaliza.png", 
+    name: "Sonaliza", 
+    link: "/members/sonaliza"  // Updated to match your route
+  },
+  { 
+    src: "images/datu.png", 
+    name: "Datu", 
+    link: "/members/datu"      // Updated to match your route
+  },
+  { 
+    src: "images/defensor.png", 
+    name: "Defensor", 
+    link: "/members/defensor"  // Updated to match your route
+  },
 ];
 
 export default function Carousel() {
