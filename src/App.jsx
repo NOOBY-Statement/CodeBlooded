@@ -1,4 +1,4 @@
-// App.jsx — no <BrowserRouter> here!
+
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Members from './pages/Members';
 import { HashRouter } from 'react-router-dom';

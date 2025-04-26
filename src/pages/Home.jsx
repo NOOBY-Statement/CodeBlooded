@@ -91,8 +91,8 @@ export default function Home() {
               </motion.button>
             </Link>
 
-            {/* Desktop Navigation Links (below CTA button) */}
-            <div className="hidden md:flex flex-row space-x-8 mt-2">
+              {/* Desktop Navigation Links (below CTA button) */}
+              <div className="hidden md:flex flex-row space-x-8 mt-2">
               {links.map((link) => (
                 <motion.div key={link} className="relative" whileHover="hover" initial="rest">
                   <motion.a
@@ -244,7 +244,7 @@ export default function Home() {
           </>
         )}
       </AnimatePresence>
-
+      
           {/* Right Side - Lanyard with adjusted positioning */}
           <div className="w-90% md:w-1/2 h-auto flex justify-center md:justify-end items-start z-10">
           {/* Mobile/Tablet: Centered with moderate spacing */}
